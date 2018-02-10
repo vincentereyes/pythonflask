@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>Welcome to the great number game1</h1>
+<p>I am thinking of a number between 1 and 100</p>
+<p>Take a guess!</p>
+<p>{{session['result']}}</p>
+<form action='/guess' method='post'>
+          Number: <input type='number' name='inp'>
+          <input type='submit' value='Lets go'>
+</form>
+<form action='/reset' method='post'>
+          <input type='submit' value='reset''>
+</form>
+</body>
+</html>

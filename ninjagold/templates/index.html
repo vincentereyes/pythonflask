@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<p>Your Gold: {{session['gold']}}</p>
+<form action="/process_money" method="post">
+	<label>Farm</label>
+  <input type="hidden" name="building" value="farm" />
+  <input type="submit" value="Find Gold!"/>
+</form>
+<form action="/process_money" method="post">
+	<label>Cave</label>
+  <input type="hidden" name="building" value="cave" />
+  <input type="submit" value="Find Gold!"/>
+</form>
+<form action="/process_money" method="post">
+	<label>House</label>
+  <input type="hidden" name="building" value="house" />
+  <input type="submit" value="Find Gold!"/>
+</form>
+<form action="/process_money" method="post">
+	<label>Casino</label>
+  <input type="hidden" name="building" value="casino" />
+  <input type="submit" value="Find Gold!"/>
+</form>
+{% for x in session['logg']: %}
+	<p>{{ x }}</p>
+{% endfor %}
+</body>
+</html>
