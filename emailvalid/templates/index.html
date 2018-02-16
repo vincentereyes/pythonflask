@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+<form action='/checkemail' method='post'>
+          Email: <input type='text' name='iemail'>
+          <input type='submit' value='Submit'>
+     </form>
+</body>
+</html>

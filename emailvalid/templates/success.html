@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+    {% if messages %}
+      {% for message in messages %}
+        <p>{{message}}</p>
+      {% endfor %}
+    {% endif %}
+  {% endwith %}
+<hr>
+<h1>Email addresses entered: </h1>
+ <table>
+  <tr>
+    <th>Email</th>
+    <th>Date Entered</th>
+  </tr>
+  {% for x in all_emails %}
+  <tr>
+  <td>{{ x['email'] }}</td>
+  <td>{{ x['created_at'] }}</td>
+</tr>
+{% endfor %}
+  </table>
+</body>
+</html>

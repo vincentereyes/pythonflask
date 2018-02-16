@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+<h1>Users</h1>
+  <table class="table">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Created at</th>
+    <th>Action</th>
+  </tr>
+  {% for x in all_friends %}
+  <tr>
+  <td>{{ x['id'] }}</td>
+  <td>{{ x['name'] }}</td>
+  <td>{{ x['email'] }}</td>
+  <td>{{ x['dates'] }}</td>
+  <td><a href="/users/{{ x['id'] }}">Show</a><a href="/users/{{ x['id'] }}/edit"> Edit</a><a href="/users/{{ x['id'] }}/destroy"> Delete</a></td>
+</tr>
+{% endfor %}
+  </table>
+<a href="/users/new"><button>Add a new user</button></a>
+</div>
+</body>
+</html>
