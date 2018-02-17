@@ -95,17 +95,21 @@ def bebye():
 
 @app.route('/wall')
 def yo():
+    if session['id'] == 0:
+        flash("SORRY")
+        return redirect('/')
+    else: 
     # query = "SELECT users.id, users.first_name, users.last_name, messages.id, date_format(messages.created_at, '%M %d %Y' ) as msgdate, messages.message FROM messages JOIN users ON messages.id = users.id"
     # messages = mysql.query_db(query)
-    query = "SELECT id, date_format(created_at, '%M %d %Y' ) as msgdate, message, user_id FROM messages ORDER BY created_at DESC;"
-    messages = mysql.query_db(query)
+        query = "SELECT id, date_format(created_at, '%M %d %Y' ) as msgdate, message, user_id FROM messages ORDER BY created_at DESC;"
+        messages = mysql.query_db(query)
 
-    query2 = "SELECT id, first_name, last_name from users"
-    users = mysql.query_db(query2)
+        query2 = "SELECT id, first_name, last_name from users"
+        users = mysql.query_db(query2)
 
-    query3 = "SELECT id, comment, date_format(created_at, '%M %d %Y' ) as msgdate, message_id, user_id from comments"
-    comments = mysql.query_db(query3)
-    return render_template('wall.html', msgs=messages, usrs=users, cmnts = comments)
+        query3 = "SELECT id, comment, date_format(created_at, '%M %d %Y' ) as msgdate, message_id, user_id from comments"
+        comments = mysql.query_db(query3)
+        return render_template('wall.html', msgs=messages, usrs=users, cmnts = comments)
 
 @app.route('/pstmsg', methods=['POST'])
 def pstmsg():

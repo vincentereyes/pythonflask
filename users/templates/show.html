@@ -8,12 +8,13 @@
 </head>
 <body>
 <div class="container">
-<h1>User {{ id }}</h1>
-<p>Full Name: {{ name }}</p>
-<p>Email: {{ email }}</p>
-<p>Created at: {{ date }}</p>
-<a href="/edit"><button>Edit</button></a>
-<a href="/delete"><button>Delete</button></a>
+<h1>User {{ friend[0].id }}</h1>
+<p>Full Name: {{ friend[0].name }}</p>
+<p>Email: {{ friend[0].email }}</p>
+<p>Created at: {{ friend[0].frienddate}}</p>
+<a href="/users/{{ friend[0].id }}/edit"><button>Edit</button></a>
+<a href="/users/{{ friend[0].id }}/destroy"><button>Delete</button></a>
+<a href="/users"><button class="button">Go Back</button></a>
 </div>
 </body>
 </html>
